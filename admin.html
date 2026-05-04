@@ -935,9 +935,9 @@
                 ],
                 // Subscription & Entitlement Module Data
                 plans: [
-                    { id: 'P-01', name: 'Starter', slug: 'starter', priceMo: 49, priceYr: 490, sectorsLimit: 1, companiesLimit: 5, features: ['basic_reports', 'standard_charts'], status: 'active', visibility: 'public' },
-                    { id: 'P-02', name: 'Pro', slug: 'pro', priceMo: 199, priceYr: 1990, sectorsLimit: 3, companiesLimit: 25, features: ['premium_reports', 'alerts', 'advanced_charts', 'excel_export'], status: 'active', visibility: 'public', featured: true },
-                    { id: 'P-03', name: 'Elite', slug: 'elite', priceMo: 499, priceYr: 4990, sectorsLimit: 'unlimited', companiesLimit: 'unlimited', features: ['strategy_views', 'top_picks', 'ai_summaries', 'api_access', 'custom_alerts'], status: 'active', visibility: 'public' },
+                    { id: 'P-01', name: 'Free', slug: 'free', priceMo: 0, priceYr: 0, sectorsLimit: 1, companiesLimit: 5, features: ['basic_reports', 'standard_charts'], status: 'active', visibility: 'public' },
+                    { id: 'P-02', name: 'Pro', slug: 'pro', priceMo: 49, priceYr: 490, sectorsLimit: 3, companiesLimit: 25, features: ['premium_reports', 'alerts', 'advanced_charts', 'excel_export'], status: 'active', visibility: 'public', featured: true },
+                    { id: 'P-03', name: 'Premium', slug: 'premium', priceMo: 199, priceYr: 1990, sectorsLimit: 'unlimited', companiesLimit: 'unlimited', features: ['strategy_views', 'top_picks', 'ai_summaries', 'api_access', 'custom_alerts'], status: 'active', visibility: 'public' },
                     { id: 'P-04', name: 'Enterprise', slug: 'enterprise', priceMo: 'Custom', priceYr: 'Custom', sectorsLimit: 'custom', companiesLimit: 'custom', features: ['dedicated_manager', 'white_label', 'bulk_api'], status: 'active', visibility: 'private' }
                 ],
                 subscribers: [
@@ -2115,7 +2115,7 @@
                     <div class="stat-card">
                         <div class="field-label">Active Subscriptions</div>
                         <div class="stat-value">${stats.totalSubscribers}</div>
-                        <div style="font-size:11px; color:var(--text-tertiary); margin-top:4px;">842 Pro | 120 Elite</div>
+                        <div style="font-size:11px; color:var(--text-tertiary); margin-top:4px;">842 Pro | 120 Premium</div>
                     </div>
                     <div class="stat-card">
                         <div class="field-label">Annual Churn Rate</div>
@@ -2136,9 +2136,9 @@
                             <table>
                                 <thead><tr><th>Event</th><th>Subscriber</th><th>Plan</th><th>Date</th></tr></thead>
                                 <tbody>
-                                    <tr><td><span class="status-badge status-success">UPGRADE</span></td><td>Alexander Wright</td><td>Elite</td><td>Today</td></tr>
+                                    <tr><td><span class="status-badge status-success">UPGRADE</span></td><td>Alexander Wright</td><td>Premium</td><td>Today</td></tr>
                                     <tr><td><span class="status-badge status-info">RENEWAL</span></td><td>Jameson Capital</td><td>Pro</td><td>Yesterday</td></tr>
-                                    <tr><td><span class="status-badge status-danger">CHURN</span></td><td>Retail Aggregator</td><td>Starter</td><td>2 days ago</td></tr>
+                                    <tr><td><span class="status-badge status-danger">CHURN</span></td><td>Retail Aggregator</td><td>Free</td><td>2 days ago</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -2167,8 +2167,8 @@
             container.innerHTML = `
                 <div class="page-header">
                     <div class="page-title">
-                        <h1>Subscription Plans</h1>
-                        <p>Configure subscription tiers, entitlement bundles, and pricing strategies.</p>
+                        <h1>Subscription Intelligence & Plans</h1>
+                        <p>Configure access tiers, manage institutional entitlements, and optimize monetization strategies.</p>
                     </div>
                     <div class="page-actions">
                         <button class="btn btn-primary" onclick="openCreatePlanModal()">+ Create New Plan</button>
@@ -2412,7 +2412,7 @@
                             <div class="card-header"><div class="card-title">Active Entitlement Summary</div></div>
                             <div style="padding:24px;">
                                 <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; margin-bottom:32px;">
-                                    <div class="stat-card"><div class="field-label">Current Plan</div><div class="stat-value" style="font-size:20px;">Elite</div></div>
+                                    <div class="stat-card"><div class="field-label">Current Plan</div><div class="stat-value" style="font-size:20px;">Premium</div></div>
                                     <div class="stat-card"><div class="field-label">Next Renewal</div><div class="stat-value" style="font-size:20px;">Dec 2025</div></div>
                                     <div class="stat-card"><div class="field-label">Account Type</div><div class="stat-value" style="font-size:20px;">Institutional</div></div>
                                 </div>
@@ -2676,8 +2676,8 @@
                             <thead><tr><th>Add-on Name</th><th>Category</th><th>Price</th><th>Target Plan</th><th>Status</th></tr></thead>
                             <tbody>
                                 <tr><td><strong>Strategy Insight Pack</strong></td><td>Content</td><td>$99/mo</td><td>Pro</td><td><span class="status-badge status-success">ACTIVE</span></td></tr>
-                                <tr><td><strong>Extra 10 Companies</strong></td><td>Quota</td><td>$49/mo</td><td>Starter</td><td><span class="status-badge status-success">ACTIVE</span></td></tr>
-                                <tr><td><strong>Bulk API Access</strong></td><td>Feature</td><td>$299/mo</td><td>Elite</td><td><span class="status-badge status-success">ACTIVE</span></td></tr>
+                                <tr><td><strong>Extra 10 Companies</strong></td><td>Quota</td><td>$49/mo</td><td>Free</td><td><span class="status-badge status-success">ACTIVE</span></td></tr>
+                                <tr><td><strong>Bulk API Access</strong></td><td>Feature</td><td>$299/mo</td><td>Premium</td><td><span class="status-badge status-success">ACTIVE</span></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -2698,7 +2698,7 @@
                         <table>
                             <thead><tr><th>Timestamp</th><th>Action</th><th>Subscriber</th><th>Details</th><th>Operator</th></tr></thead>
                             <tbody>
-                                <tr><td class="mono">2025-04-28 14:22</td><td><span class="tag">UPGRADE</span></td><td>Alexander Wright</td><td>Starter → Elite</td><td>System (Auto)</td></tr>
+                                <tr><td class="mono">2025-04-28 14:22</td><td><span class="tag">UPGRADE</span></td><td>Alexander Wright</td><td>Free → Premium</td><td>System (Auto)</td></tr>
                                 <tr><td class="mono">2025-04-28 09:15</td><td><span class="tag">OVERRIDE</span></td><td>Elena Rossi</td><td>Added 'Renewables' Sector</td><td>Sarah L.</td></tr>
                                 <tr><td class="mono">2025-04-27 18:45</td><td><span class="tag">BILLING</span></td><td>Julian Thorne</td><td>Payment Failed (Attempt 2)</td><td>Stripe Proxy</td></tr>
                             </tbody>

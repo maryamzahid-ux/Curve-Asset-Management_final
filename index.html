@@ -602,8 +602,8 @@
             selectedSector: 'All Sectors',
             reports: [
                 { id: 'R-2025-001', name: 'Global Summary Auto Report', sector: 'Global Autos', date: '2025-04-28', status: 'published', type: 'PDF', entitlement: 'Pro' },
-                { id: 'R-2025-002', name: 'Semiconductor Outlook Q2', sector: 'Technology', date: '2025-04-27', status: 'published', type: 'PDF', entitlement: 'Elite' },
-                { id: 'R-2025-003', name: 'Retail Bank Credit Audit', sector: 'Financial Services', date: '2025-04-26', status: 'published', type: 'PDF', entitlement: 'Starter' }
+                { id: 'R-2025-002', name: 'Semiconductor Outlook Q2', sector: 'Technology', date: '2025-04-27', status: 'published', type: 'PDF', entitlement: 'Premium' },
+                { id: 'R-2025-003', name: 'Retail Bank Credit Audit', sector: 'Financial Services', date: '2025-04-26', status: 'published', type: 'PDF', entitlement: 'Free' }
             ],
             stocks: [
                 { ticker: 'TM', name: 'Toyota Motor', price: 194.22, change: +1.45, sector: 'Global Autos' },
@@ -612,9 +612,9 @@
                 { ticker: 'JPM', name: 'JPMorgan Chase', price: 198.40, change: +0.40, sector: 'Financial Services' }
             ],
             plans: [
-                { id: 'P1', name: 'Starter', price: 0, features: ['Limited Sectors', 'Daily Summaries'] },
-                { id: 'P2', name: 'Pro', price: 49, features: ['Unlimited Sectors', 'Deep Dive Reports', 'Payout Alerts'] },
-                { id: 'P3', name: 'Elite', price: 199, features: ['Institutional Terminal', 'Analyst Access', 'API Data'] }
+                { id: 'P1', name: 'Free', price: 0, features: ['Basic Market Data', 'Daily Summaries', 'Sector Overview'] },
+                { id: 'P2', name: 'Pro', price: 49, features: ['Real-time Indicators', 'Advanced Tools', 'Portfolio Tracking', 'Ad-free Experience'] },
+                { id: 'P3', name: 'Premium', price: 199, features: ['Institutional Research', 'Strategy Insights', 'API Access', 'Direct Analyst Support'] }
             ]
         };
 
@@ -1306,8 +1306,8 @@
         function renderSubscription(container) {
             container.innerHTML = `
                 <div class="section-title animate">
-                    <h1>Subscription Management</h1>
-                    <p style="color:var(--text-secondary);">Manage your access tier and content entitlements.</p>
+                    <h1>Choose Your Intelligence Tier</h1>
+                    <p style="color:var(--text-secondary);">Unlock professional-grade financial intelligence tailored to your investment style.</p>
                 </div>
 
                 <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:32px; margin-top:40px;" class="animate">
@@ -1392,7 +1392,7 @@
 
         function isEntitled(report) {
             if (!state.user) return false;
-            const planWeights = { 'Starter': 1, 'Pro': 2, 'Elite': 3 };
+            const planWeights = { 'Free': 1, 'Pro': 2, 'Premium': 3 };
             const userWeight = planWeights[state.plans.find(p => p.id === state.user.planId).name] || 1;
             const reportWeight = planWeights[report.entitlement] || 1;
             return userWeight >= reportWeight;
